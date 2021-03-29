@@ -4,8 +4,8 @@ from pushbullet import Pushbullet
 import os
 from os import environ
 
-NickEh30_ID = "2733210014"
-#NickEh30_ID = "1375069720089612292"
+#NickEh30ID = "2733210014"
+NickEh30_ID = "1375069720089612292"
 Push_api_key = environ['Push_api_key']
 
 #Add your credentials here
@@ -23,12 +23,25 @@ auth.set_access_token(twitter_keys['access_token_key'], twitter_keys['access_tok
 api = tweepy.API(auth)
 pb = Pushbullet(Push_api_key)
 
+def from_creator(status):
+    if hasattr(status, 'retweeted_status'):
+        return False
+    elif status.in_reply_to_status_id != None:
+        return False
+    elif status.in_reply_to_screen_name != None:
+        return False
+    elif status.in_reply_to_user_id != None:
+        return False
+    else:
+        return True
+
 #override tweepy.StreamListener to add logic to on_status
 class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
-        print(status.text)
-        push = pb.push_note("New Tweet", status.text)
+        if(from_creator(status)):
+            print(status.text)
+            push = pb.push_note("New Tweet", status.text)
 
 
 myStreamListener = MyStreamListener()
