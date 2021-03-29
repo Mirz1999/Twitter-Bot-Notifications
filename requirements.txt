@@ -15,7 +15,6 @@ pypiwin32==223
 PyQRCode==1.2.1
 PySocks==1.7.1
 python-magic==0.4.22
-pywin32==300
 requests==2.22.0
 requests-oauthlib==1.3.0
 six==1.15.0
