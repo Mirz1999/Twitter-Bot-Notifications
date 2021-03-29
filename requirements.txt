@@ -21,5 +21,4 @@ toml==0.10.2
 tweepy==3.10.0
 urllib3==1.25.11
 websocket-client==0.58.0
-win10toast==0.9
 wrapt==1.12.1
