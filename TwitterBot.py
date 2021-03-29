@@ -4,8 +4,8 @@ from pushbullet import Pushbullet
 import os
 from os import environ
 
-#NickEh30ID = "2733210014"
-NickEh30_ID = "1375069720089612292"
+NickEh30_ID = "2733210014"
+#NickEh30_ID = "1375069720089612292"
 Push_api_key = environ['Push_api_key']
 
 #Add your credentials here
